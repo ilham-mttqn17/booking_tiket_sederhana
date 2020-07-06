@@ -16,7 +16,7 @@ int main()
 {
 	
 	int pilih;
-        char username[10], password[10];
+	char username[10], password[10];
 	char tmp_buffer[64] = {0};
 	char x;
 	string menu [] = {

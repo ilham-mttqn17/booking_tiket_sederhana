@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdio>
 #include <limits>
+#include <cstdlib>
 
 #define file_database_user "database_user.txt"
 
