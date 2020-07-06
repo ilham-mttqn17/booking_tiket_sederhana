@@ -2,6 +2,7 @@
 #define JADWAL
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <string.h>
 #include <ctime>
 #include <cstdlib>
@@ -148,11 +149,11 @@ void Create(){
 			}
 
 			cout << "Data Berhasil Disimpan" << endl;
-			getchar();
+			getch();
 			
 		} else {
 			cout << "Data Gagal Disimpan" << endl;
-			getchar();
+			getch();
 		}
 
 	} else if (pilih == 2){
@@ -224,11 +225,11 @@ void Create(){
 			}
 
 			cout << "Data Berhasil Disimpan" << endl;
-			getchar();
+			getch();
 			
 		} else {
 			cout << "Data Gagal Disimpan" << endl;
-			getchar();
+			getch();
 		}
 
 	} else if (pilih == 3){
@@ -300,15 +301,15 @@ void Create(){
 			}
 
 			cout << "Data Berhasil Disimpan" << endl;
-			getchar();
+			getch();
 			
 		} else {
 			cout << "Data Gagal Disimpan" << endl;
-			getchar();
+			getch();
 		}
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		goto Menu_jadwal;
 	}
 	return ;

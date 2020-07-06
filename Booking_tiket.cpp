@@ -2,6 +2,7 @@
 #define TIKET 
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <limits>
 #include <string.h>
 #include "Registrasi_akun.cpp"
@@ -13,15 +14,24 @@ using namespace std;
 #define file_database_tiket_bus "database_tiket_bus.txt"
 
 struct Tiket{
-	struct Jadwal jadwal_buf;
+	struct Jadwal jadwal_buf[5];
 	char nama_pengguna[32];
 	string nama_kendaraan;
 	int no_bangku=0;
-	string kelas[2] = {"Bisnis","Ekonomi"};
-	string metode_bayar[4] = {"DANA","LINK AJA","GOPAY","BANK"};
+	char kelas[2][10];
+	char metode_bayar[4][10];
 	// int jml_tiket;
 	int total_bayar;
 	int harga;
+
+	Tiket() {
+		strcpy(this->kelas[0], "Bisnis");
+		strcpy(this->kelas[1], "Ekonomi");
+		strcpy(this->metode_bayar[0], "DANA");
+		strcpy(this->metode_bayar[1], "LINK AJA");
+		strcpy(this->metode_bayar[2], "GOPAY");
+		strcpy(this->metode_bayar[3], "BANK");
+	}
 };
 
 void bookPesawat();
@@ -30,7 +40,7 @@ void bookBus();
 
 void Booking () {
 	
-	FILE *handle, *handle2;
+	FILE *handle;
 	int pilih, nread=0, no_pilih, tmp_class, tipe, tipe1, bayar, metode_bayar;
 	string kelas[] = {"Bisnis","Ekonomi"};
 	char x;
@@ -58,18 +68,18 @@ void Booking () {
 		bookBus();
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		goto Menu;
 
 	}
-	// getchar();
+	// getch();
 	return;
 
 }
 
 void bookPesawat() {
-	FILE *handle, *handle2, *handle3;
-	int pilih, nread=0, no_pilih, tmp_class, tipe, tipe1, bayar, metode_bayar;
+	FILE *handle;
+	int i=0, pilih, nread=0, no_pilih, tmp_class, tipe, tipe1, bayar, metode_bayar;
 	string kelas[] = {"Bisnis","Ekonomi"};
 	char x, tmp_buffer[64] = {0};
 	struct Tiket tiket;
@@ -99,7 +109,7 @@ void bookPesawat() {
 		tipe = 2;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		return;
 	}
 	
@@ -122,7 +132,7 @@ void bookPesawat() {
 		tipe1 = 4;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		return;
 	}
 
@@ -136,20 +146,20 @@ void bookPesawat() {
 			if (nread == 0){
 				break;
 			}
-			tiket.jadwal_buf = jadwal[no_pilih-1];
-
+			tiket.jadwal_buf[i] = jadwal[no_pilih-1];
+			
 		}
 	}
 	fclose(handle);
 
-	handle3 = fopen(file_database_user,"rb+");
-	if (handle3 == NULL)
+	handle = fopen(file_database_user,"rb+");
+	if (handle == NULL)
 	{
 		cout << "Database Kosong" << endl;
-		getchar();
+		getch();
 	} else {
-		while(!feof(handle3)) {
-			if (fread(&user, 1, sizeof(user), handle3) == 0)
+		while(!feof(handle)) {
+			if (fread(&user, 1, sizeof(user), handle) == 0)
 			{
 				break;
 			}
@@ -157,10 +167,10 @@ void bookPesawat() {
 			strcpy(tiket.nama_pengguna, user.nama);
 		}
 	}
-	fclose(handle3);
+	fclose(handle);
 
 	cout << "\nKonfirmasi Pembelian" << endl;
-	cout << "Nama Kendaraan\t\t: " << tiket.jadwal_buf.nama_maskapai << endl;
+	cout << "Nama Kendaraan\t\t: " << tiket.jadwal_buf[i].nama_maskapai << endl;
 	cout << "Kelas\t\t\t: " << tiket.kelas[tipe-1] << endl;
 	cout << "Total bayar\t\t: " << tiket.harga << endl;
 	cout << "Metode Pembayaran\t: " << tiket.metode_bayar[tipe1-1] << endl;
@@ -170,16 +180,16 @@ void bookPesawat() {
 	cin.ignore(numeric_limits<streamsize>::max(),'\n');
 	if (x == 'Y' || x == 'y')
 	{
-		handle2 = fopen(file_database_tiket_pesawat,"ab+");
-		if (handle2 == NULL)
+		handle = fopen(file_database_tiket_pesawat,"ab+");
+		if (handle == NULL)
 		{
 			cout << "Database Kosong" << endl;
 		} else {
-			
+				i++;
 				tiket.no_bangku++;
-				fwrite(&tiket, sizeof(tiket), 1, handle2);				
+				fwrite(&tiket, sizeof(tiket), 1, handle);				
 				cout << "Pembayaran Berhasil" << endl;
-				fclose(handle2);
+				fclose(handle);
 		}
 			
 		
@@ -189,11 +199,11 @@ void bookPesawat() {
 		
 	}
 
-	getchar();
+	getch();
 }
 
 void bookKereta() {
-	FILE *handle, *handle2;
+	FILE *handle;
 	int pilih, nread=0, no_pilih, tmp_class, tipe, tipe1, bayar, metode_bayar;
 	string kelas[] = {"Bisnis","Ekonomi"};
 	char x, tmp_buffer[64] = {0};
@@ -223,7 +233,7 @@ void bookKereta() {
 		tipe = 2;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		return;
 	}
 	
@@ -246,7 +256,7 @@ void bookKereta() {
 		tipe1 = 4;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		return;
 	}
 
@@ -277,16 +287,16 @@ void bookKereta() {
 	cin.ignore(numeric_limits<streamsize>::max(),'\n');
 	if (x == 'Y' || x == 'y')
 	{
-		handle2 = fopen(file_database_tiket_kereta,"ab+");
-		if (handle2 == NULL)
+		handle = fopen(file_database_tiket_kereta,"ab+");
+		if (handle == NULL)
 		{
 			cout << "Database Kosong" << endl;
 		} else {
 			
 				tiket.no_bangku++;
-				fwrite(&tiket, sizeof(tiket), 1, handle2);
+				fwrite(&tiket, sizeof(tiket), 1, handle);
 				cout << "Pembayaran Berhasil" << endl;
-				fclose(handle2);
+				fclose(handle);
 		}
 		
 		
@@ -296,11 +306,11 @@ void bookKereta() {
 		
 	}
 
-	getchar();
+	getch();
 }
 
 void bookBus() {
-	FILE *handle, *handle2;
+	FILE *handle;
 	int pilih, nread=0, no_pilih, tmp_class, tipe, tipe1, bayar, metode_bayar;
 	string kelas[] = {"Bisnis","Ekonomi"};
 	char x, tmp_buffer[64] = {0};
@@ -330,7 +340,7 @@ void bookBus() {
 		tipe = 2;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		return;
 	}
 	
@@ -353,7 +363,7 @@ void bookBus() {
 		tipe1 = 4;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getchar();
+		getch();
 		return;
 	}
 
@@ -384,15 +394,15 @@ void bookBus() {
 	cin.ignore(numeric_limits<streamsize>::max(),'\n');
 	if (x == 'Y' || x == 'y')
 	{
-		handle2 = fopen(file_database_tiket_bus,"ab+");
-		if (handle2 == NULL)
+		handle = fopen(file_database_tiket_bus,"ab+");
+		if (handle == NULL)
 		{
 			cout << "Database Kosong" << endl;
 		} else {
 				tiket.no_bangku++;
-				fwrite(&tiket, 1, sizeof(tiket), handle2);
+				fwrite(&tiket, 1, sizeof(tiket), handle);
 				cout << "Pembayaran Berhasil" << endl;
-				fclose(handle2);
+				fclose(handle);
 		}
 		
 		
@@ -402,7 +412,7 @@ void bookBus() {
 		
 	}
 
-	getchar();
+	getch();
 }
 
 #endif

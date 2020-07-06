@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <string.h>
 #include <iomanip>
 #include "Create_jadwal.cpp"
@@ -69,7 +70,7 @@ void showUser() {
 		}
 		cout << "============================" << endl;
 
-		getchar();
+		getch();
 		
 	}
 }

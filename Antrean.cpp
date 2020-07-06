@@ -1,6 +1,7 @@
 #include <iostream>
 #include <limits>
 #include <cstdio>
+#include <conio.h>
 #include <string.h>
 #include <iomanip>
 #include "Create_jadwal.cpp"

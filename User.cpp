@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <limits>
 #include "Registrasi_akun.cpp"
 #include "Dashboard_user.cpp"
@@ -37,17 +38,17 @@ void User()
 			Registrasi();
 		} else if (confirm == 'N' || confirm == 'n'){
 			cout << "Gagal membuat akun baru" << endl;
-			getchar();
+			getch();
 			return;
 		} else {
 			cout << "Harap masukkan inputan yang benar!" << endl;
-			getchar();
+			getch();
 			goto Sign_up;
 		}
 
 	} else {
 		cout << "Harap masukkan inputan yang benar!" << endl;
-		getchar();
+		getch();
 		goto Login;
 	}
 

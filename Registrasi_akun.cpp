@@ -2,8 +2,8 @@
 #define USER
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <limits>
-#include <cstdlib>
 
 #define file_database_user "database_user.txt"
 
@@ -17,7 +17,7 @@ struct User{
 	char riwayat_penyakit[32];
 	char username[16];
 	char password[16];
-	int kontak;
+	char kontak[16];
 	char email[64];
 };
 
@@ -46,8 +46,8 @@ void Registrasi () {
 	cout << "Riwayat Penyakit\t\t: ";
 	cin.getline(user.riwayat_penyakit,31);
 	cout << "No Telepon\t\t\t: ";
-	cin.getline(buffer,31);
-	user.kontak = atoi (buffer);
+	cin.getline(user.kontak,31);
+	
 	cout << "Email Aktif\t\t\t: ";
 	cin.getline(user.email,63);
 
@@ -79,15 +79,15 @@ void Registrasi () {
 			fclose(handle);	
 		}
 		cout << "Data berhasil disimpan" << endl;
-		getchar();
+		getch();
 
 	} else if (simpan == 'N' || simpan == 'n'){
 		cout << "Data gagal disimpan" << endl;
-		getchar();
+		getch();
 		return;
 	} else {
 		cout << "Inputkan pilihan dengan benar!" << endl;
-		getchar();
+		getch();
 		goto Konfirmasi;
 	}
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <limits>
 #include <string.h>
 #include "Registrasi_akun.cpp"
@@ -36,7 +37,7 @@ void Dashboard () {
 	if (handle == NULL)
 	{
 		cout << "Database Kosong" << endl;
-		getchar();
+		getch();
 	} else {
 		while(!feof(handle)){
 			nread = fread(&user, sizeof(user), 1, handle);
@@ -54,7 +55,7 @@ void Dashboard () {
 
 		if (!cek){
 			cout << "Login Gagal" << endl;
-			getchar();
+			getch();
 		}
 	}
 }
@@ -93,7 +94,7 @@ void Dashboard2 (char email[64], char password[16]) {
 			case INFO: Informasi(); break;
 			// case CANCEL: break;
 			case BOOKING: Booking(); break;
-			default: cout << "Pilihan tidak tersedia" << endl; getchar(); break;
+			default: cout << "Pilihan tidak tersedia" << endl; getch(); break;
 		}
 		goto Menu_user;
 	}
@@ -151,7 +152,7 @@ void Profile (char email[64], char password[16]) {
 			}
 		}
 		cout << "\nPress Enter to Back!" << endl;
-		getchar();
+		getch();
 		fclose(handle);
 
 	}

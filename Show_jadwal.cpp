@@ -2,6 +2,7 @@
 #define SHOW 
 #include <iostream>
 #include <cstdio>
+#include <conio.h>
 #include <iomanip>
 #include "Create_jadwal.cpp"
 
@@ -49,15 +50,15 @@ void Show(){
 
 	while(pilih != 4) {
 		switch(pilih){
-			case 1: jadwalPesawat(); getchar(); break;
+			case 1: jadwalPesawat(); getch(); break;
 
-			case 2: jadwalKereta(); getchar(); break;
+			case 2: jadwalKereta(); getch(); break;
 
-			case 3: jadwalBus(); getchar(); break;
+			case 3: jadwalBus(); getch(); break;
 
 			default:
 				cout << "Pilihan tidak tersedia" << endl;
-				getchar();
+				getch();
 				// goto Menu_jadwal;
 				break;
 		}
@@ -78,7 +79,7 @@ void jadwalPesawat() {
 	handle = fopen(file_database_pesawat,"rb");
 	if (handle == NULL){
 		cout << "Database Kosong";
-		getchar();
+		getch();
 	} else {
 		cout << endl;
 		for (int i = 0; i < 8; ++i)
@@ -138,7 +139,7 @@ void jadwalKereta() {
 	handle = fopen(file_database_kereta,"rb");
 	if (handle == NULL){
 		cout << "Database Kosong";
-		getchar();
+		getch();
 	} else {
 		cout << endl;
 		for (int i = 0; i < 8; ++i)
@@ -200,7 +201,7 @@ void jadwalBus() {
 	handle = fopen(file_database_bus,"rb");
 	if (handle == NULL){
 		cout << "Database Kosong";
-		getchar();
+		getch();
 	} else {
 		cout << endl;
 		for (int i = 0; i < 8; ++i)
