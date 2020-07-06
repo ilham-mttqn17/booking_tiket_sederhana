@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdio>
 #include <string.h>
-#include <conio.h>
 #include "Booking_tiket.cpp"
 #include "Registrasi_akun.cpp"
 
@@ -32,27 +31,11 @@ void Informasi() {
 	}
 
 
-	// handle = fopen(file_database_tiket_pesawat, "rb+");
-	// if (handle == NULL)
-	// {
-	// 	cout << "Database Kosong" << endl;
-	// 	getchar();
-	// } else {
-	// 	while(!feof(handle)){
-	// 		if (fread(&tiket, 1, sizeof(tiket), handle) == 0)
-	// 		{
-	// 			break;
-	// 		}
-	// 	}
-	// 	fclose(handle);		
-	// }
-	
-
 	handle = fopen(file_database_tiket_pesawat,"rb+");
 	if (handle == NULL)
 	{
 		cout << "Database Kosong" << endl;
-		getch();
+		getchar();
 	} else {
 		while(!feof(handle)) {
 			if (fread(&tiket, 1, sizeof(tiket), handle) == 0)
@@ -82,7 +65,7 @@ void Informasi() {
 				
 			}
 		}
-		// getch();
+		// getchar();
 		fclose(handle);
 	}
 

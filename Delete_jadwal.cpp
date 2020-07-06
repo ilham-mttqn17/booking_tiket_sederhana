@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdio>
 #include <string.h>
-#include <conio.h>
 #include "Create_jadwal.cpp"
 
 
@@ -79,7 +78,7 @@ void Delete() {
 				cout << "Kode tidak ditemukan" << endl;
 			}
 			cout << "Data berhasil dihapus" << endl;
-			getch();
+			getchar();
 			fclose(handle);
 			
 		}
@@ -120,7 +119,7 @@ void Delete() {
 				cout << "Kode tidak ditemukan" << endl;
 			}
 			cout << "Data berhasil dihapus" << endl;
-			getch();
+			getchar();
 			fclose(handle);
 			
 		}
@@ -160,7 +159,7 @@ void Delete() {
 				cout << "Kode tidak ditemukan" << endl;
 			}
 			cout << "Data berhasil dihapus" << endl;
-			getch();
+			getchar();
 			fclose(handle);
 			
 		}

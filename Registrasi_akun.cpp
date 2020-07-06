@@ -2,7 +2,6 @@
 #define USER
 #include <iostream>
 #include <cstdio>
-#include <conio.h>
 #include <limits>
 
 #define file_database_user "database_user.txt"
@@ -79,15 +78,15 @@ void Registrasi () {
 			fclose(handle);	
 		}
 		cout << "Data berhasil disimpan" << endl;
-		getch();
+		getchar();
 
 	} else if (simpan == 'N' || simpan == 'n'){
 		cout << "Data gagal disimpan" << endl;
-		getch();
+		getchar();
 		return;
 	} else {
 		cout << "Inputkan pilihan dengan benar!" << endl;
-		getch();
+		getchar();
 		goto Konfirmasi;
 	}
 

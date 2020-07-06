@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 #include <cstdio>
 #include "Create_jadwal.cpp"
 #include "Show_jadwal.cpp"
@@ -50,7 +49,7 @@ void Admin() {
 			case DELETE: Delete(); break;
 			case SHOW_USR: showUser(); break;
 			case ANTREAN : Antrean(); break;
-			default: cout << "Menu tidak tersedia" << endl; getch(); break;
+			default: cout << "Menu tidak tersedia" << endl; getchar(); break;
 		}
 		goto Menu;
 	}

@@ -2,7 +2,6 @@
 #define TIKET 
 #include <iostream>
 #include <cstdio>
-#include <conio.h>
 #include <limits>
 #include <string.h>
 #include "Registrasi_akun.cpp"
@@ -68,11 +67,11 @@ void Booking () {
 		bookBus();
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		goto Menu;
 
 	}
-	// getch();
+	// getchar();
 	return;
 
 }
@@ -109,7 +108,7 @@ void bookPesawat() {
 		tipe = 2;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		return;
 	}
 	
@@ -132,7 +131,7 @@ void bookPesawat() {
 		tipe1 = 4;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		return;
 	}
 
@@ -156,7 +155,7 @@ void bookPesawat() {
 	if (handle == NULL)
 	{
 		cout << "Database Kosong" << endl;
-		getch();
+		getchar();
 	} else {
 		while(!feof(handle)) {
 			if (fread(&user, 1, sizeof(user), handle) == 0)
@@ -199,7 +198,7 @@ void bookPesawat() {
 		
 	}
 
-	getch();
+	getchar();
 }
 
 void bookKereta() {
@@ -233,7 +232,7 @@ void bookKereta() {
 		tipe = 2;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		return;
 	}
 	
@@ -256,7 +255,7 @@ void bookKereta() {
 		tipe1 = 4;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		return;
 	}
 
@@ -306,7 +305,7 @@ void bookKereta() {
 		
 	}
 
-	getch();
+	getchar();
 }
 
 void bookBus() {
@@ -340,7 +339,7 @@ void bookBus() {
 		tipe = 2;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		return;
 	}
 	
@@ -363,7 +362,7 @@ void bookBus() {
 		tipe1 = 4;
 	} else {
 		cout << "Pilihan tidak tersedia" << endl;
-		getch();
+		getchar();
 		return;
 	}
 
@@ -412,7 +411,7 @@ void bookBus() {
 		
 	}
 
-	getch();
+	getchar();
 }
 
 #endif

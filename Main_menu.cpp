@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdio>
-#include <conio.h>
 #include <string.h>
 #include "User.cpp"
 #include "Admin.cpp"
@@ -85,7 +84,7 @@ int main()
 		if (!cek)
 		{
 			cout << "Username atau password salah, harap masukkan dengan benar!" << endl;
-			getch();
+			getchar();
 			goto Menu;		
 		}
 
@@ -105,7 +104,7 @@ int main()
 	} else {
 
 		cout << "Menu Tidak Tersedia" << endl;
-		getch();
+		getchar();
 		goto Menu;
 	}
 	
